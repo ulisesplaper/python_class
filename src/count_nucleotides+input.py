@@ -11,11 +11,13 @@ DESCRIPTION
         Contador de nucleotidos en una secuencia proporcionada por el usuario
 
 USAGE
-        ramdom motif [OPTIONS] 
+         
 
 ARGUMENTS
 
 SEE ALSO
+
+GitHub
        
 '''
 print("Introduzca la secuencia de DNA")
