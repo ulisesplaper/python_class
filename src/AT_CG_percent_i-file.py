@@ -17,7 +17,7 @@ ARGUMENTS
 SEE ALSO
 
 GitHub link
-        
+        https://github.com/ulisesplaper/python_class/blob/master/src/AT_CG_percent_i-file.py
        
 '''
 
