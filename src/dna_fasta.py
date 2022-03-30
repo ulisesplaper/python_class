@@ -8,32 +8,36 @@ AUTHOR
         Victor Ulises Plascencia Perez
 
 DESCRIPTION
-       Convierte una archivo de texto plano con una secuencia de DNA en un archivo tipo fasta.
+       Convierte una secuencia de DNA en formato raw a formato FastA
 
 USAGE  
+        dna_fasta.py 
 
 ARGUMENTS
+        ninguno
 
 SEE ALSO
+        ninguno
 
 GitHub link
         https://github.com/ulisesplaper/python_class/blob/master/src/dna_fasta.py
        
 '''
-## Se le solicita al usuario la ruta y nombre del archivo
+## Solicitar al usuario el archivo de datos
 print("Ingrese la ruta y el nombre del archivo que contiene la secuencia de DNA")
-my_file_name=input()
-## Se abre el archivo y se lee
-my_file=open(my_file_name)
-my_file_contents = my_file.read()
+my_file_name = input()
 
-## Se quita el caracter de salto de linea y se guarda la secuencia
-## en una nueva variable.
+## Abrir, leer  y cerrar el archivo de datos
+my_file = open(my_file_name)
+my_file_contents = my_file.read()
+my_file.close()
+
+# Eliminar caracteres que no son secuencia
 my_dna = my_file_contents.rstrip("\n")
 
-## Se abre (crea) un archivo llamado dna.fasta
+# Guardar secuencia en formato fastA en un archivo
 my_file = open("../results/dna.fasta","w")
-## Se escribe en el archivo el encabezado y la secuencia.
-my_file.write(f">Seq_name {my_dna}")
-## se cierra el archivo.
+my_file.write(f">Seq_name\n{my_dna}")
 my_file.close()
+
+
