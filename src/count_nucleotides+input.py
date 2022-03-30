@@ -1,6 +1,6 @@
 ''' 
 Name
-        count_nucleotides+input
+        count_nucleotides_input.py
       
 VERSION
         1.0
@@ -9,26 +9,33 @@ AUTHOR
         Victor Ulises Plascencia Perez
 
 DESCRIPTION
-       Este script toma una secuencia de DNA dada por el usuario y calcula su longitud y la cantidad de cada tipo de nucleotidos
-       que contiene.
+       Calcula la frecuencia de cada nucleotido de una secuencia de ADN
 
 USAGE
+        count_nucleotides_input.py
 
 ARGUMENTS
+        ninguno
 
 SEE ALSO
+        ninguno
 
 GitHub link
        https://github.com/ulisesplaper/python_class/blob/master/src/count_nucleotides%2Binput.py
 '''
 
-## Se solicita la secuencia y se almacena en una variable
+## Solicitar al usuario la secuencia de DNA
 print("Introduzca la secuencia de DNA")
-dna=input()
+dna = input().upper()
 
-# Se calcula e impre la longitud de la secuencia.
+# Calcular e imprimir la longitud de la secuencia.
 print(f'La cantidad de nucleotidos que contiene la secuencia es:\n{len(dna)}')
 
-# Se calcula e imprime la cantidad de cada tipo de nucleotido de la 
-# la secuencia.
-print(f"A = {dna.count('A')}\tT = {dna.count('T')}\tG = {dna.count('G')}\tC = {dna.count('C')}")
+# Contar los nucleotidos
+total_a = dna.count('A')
+total_t = dna.count('T')
+total_g = dna.count('G')
+total_c = dna.count('C')
+
+# Imprimir resultados
+print(f"A = {total_a}\tT = {total_t}\tG = {total_g}\tC = {total_c}")
