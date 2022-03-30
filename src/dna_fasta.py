@@ -17,6 +17,7 @@ ARGUMENTS
 SEE ALSO
 
 GitHub link
+        https://github.com/ulisesplaper/python_class/blob/master/src/dna_fasta.py
        
 '''
 ## Se le solicita al usuario la ruta y nombre del archivo
