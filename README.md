@@ -61,6 +61,6 @@ Este proyecto no esta bajo licencia.
 
 ## Expresiones de Gratitud
 
-A Felibe Betancourt-[pillbet](https://phillbet.com/), Shirley Alquicira-[shirley](https://github.com/shirleyah) y Heladia Salgado-[Helysalgado](https://github.com/Helysalgado)
+A Felibe Betancourt-[pillbet](https://phillbet.com/), Shirley Alquicira-[shirley](https://github.com/shirleyah), Heladia Salgado-[Helysalgado](https://github.com/Helysalgado), a Michel Mourra-[Mich Mourra](https://gist.github.com/MichMourra) y Eduardo Arrieta-[Eduardo Arrieta](https://github.com/eduardo-arrieta)
  por impartir la clase de **Programacion en Python** 
 
