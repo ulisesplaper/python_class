@@ -1,5 +1,5 @@
 ''' NAME
-      AT_G_percent_i-file.py
+      at_cg_percent_ifile.py
 
 VERSION
         1.0
@@ -12,7 +12,7 @@ DESCRIPTION
 
 USAGE
 
-        python AT_G_percent_i-file.py
+        at_cg_percent_ifile.py
          
 ARGUMENTS
         ninguno
