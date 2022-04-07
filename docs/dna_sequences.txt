@@ -1,0 +1,3 @@
+seq_1	ATCGTACGATCGATCGATCGCTAGACGTATCG
+seq_2	actgatcgacgatcgatcgatcacgact
+seq_3	ACTGAC-ACTGT—ACTGTA----CATGTG
