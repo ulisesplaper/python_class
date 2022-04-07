@@ -29,12 +29,13 @@ file = open("results/dna_sequences.fasta", "w")
 
 
 # Recorrer cada uno de los elementos de la lista
+# Eliminar caracteres que no son secuencia
 # Anadir el caracter ">" y cambiar el tabulador por salto de linea
 # Escribir cada secuencia en el archivo de destino
 
 for sequence in sequences:
     id = '>' + sequence
-    file.write(id.replace('\t', '\n'))
+    file.write(id.replace('-', '').upper().replace('\t', '\n'))
 
 
 # Cerrar el archivo fasta
