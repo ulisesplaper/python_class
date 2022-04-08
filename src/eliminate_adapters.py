@@ -27,7 +27,7 @@ GitHub link
 
 # Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
 
-file = open("docs/4_input_adapters.txt")
+file = open("data/4_input_adapters.txt")
 seqs_adapters = file.readlines()
 file.close()
 
