@@ -18,7 +18,7 @@ GitHub link
 
 # Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
 
-file = open("docs/dna_sequences.txt")
+file = open("data/dna_sequences.txt")
 sequences = file.readlines()
 file.close()
 
