@@ -1,5 +1,5 @@
 ''' Name
-    piedra_papel_tijera.py
+    juego_pied_pap_tij.py
 VERSION
         1.0
 AUTHOR
@@ -7,7 +7,7 @@ AUTHOR
 DESCRIPTION
     Jugar el juego "piedra o papel o tijera" contra la computadora.
 USAGE
-    py piedra_papel_tijera.py
+    py juego_pied_pap_tij.py
 ARGUMENTS
     none
 SEE ALSO
@@ -47,7 +47,8 @@ if (user_choice in valid_options):
             print("Felicidades!!! Le ganaste a la computadora!")
         else:
             print(
-                "Suerte para la proxima, parece que la computadora es mas habil que tu!")
+                "Suerte para la proxima, parece que la \
+computadora es mas habil que tu!")
 
     # Si la eleccion del usuario es "tijera"
     # Si la eleccion de la computadora es "papel"
@@ -59,7 +60,8 @@ if (user_choice in valid_options):
             print("Felicidades!!! Le ganaste a la computadora!")
         else:
             print(
-                "Suerte para la proxima, parece que la computadora es mas habil que tu!")
+                "Suerte para la proxima, parece que la \
+computadora es mas habil que tu!")
 
     # Si la eleccion del usuario es "papel"
     # Si la eleccion de la computadora es "piedra"
@@ -70,7 +72,8 @@ if (user_choice in valid_options):
         if(computer_choice == "piedra"):
             print("Felicidades!!! Le ganaste a la computadora!")
         else:
-            print("Suerte para la proxima, parece que la computadora es mas habil que tu")
+            print("Suerte para la proxima, parece que la \
+computadora es mas habil que tu")
 
 else:
     print("Vamos, se que conoces el juego, solo elige piedra, papel o tijera")
