@@ -34,15 +34,13 @@ file = open("results/dna_sequences.fasta", "w")
 # Escribir cada secuencia en el archivo de destino
 
 for sequence in sequences:
-    id = '>' + sequence
+    id = '>' + sequence.split("   ")[0] + "\n" + sequence.split("   ")[1]
     file.write(id.replace('-', '').upper().replace('\t', '\n'))
 
 
 # Cerrar el archivo fasta
-
 file.close()
 
 
 # Imprimir informacion para el usuario
-
 print('Archivo generado: /results/dna_sequences.fasta')
