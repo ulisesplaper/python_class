@@ -27,28 +27,25 @@ GitHub link
 
 # Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
 
-file = open("data/4_input_adapters.txt")
+file = open("../data/4_input_adapters.txt")
 seqs_adapters = file.readlines()
 file.close()
 
 
 # Crear un archivo destino para almacenar las secuencias sin adaptadores
-
-file = open('results/sequences_woadpters.txt', 'w')
+file = open('../results/sequences_woadpters.txt', 'w')
 
 
 # Recorrer la lista y eliminar los primeros 14 elementos de cada string
 # Agregar cada secuencia al archivo destino
-
 for seq_adapter in seqs_adapters:
-    file.write(f"{seq_adapter[14:-1]}\n")
+    sequence = seq_adapter[14:-1]
+    file.write(f"{sequence}\n")
 
 
-# Cerrar el archivo destino
-
+# Cerrar el archivo destin
 file.close()
 
 
 # Imprimir informacion del archivo para el usuario
-
 print('Archivo generado: /results/sequences_woadpters.txt')
