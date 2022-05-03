@@ -18,14 +18,14 @@ GitHub link
 
 # Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
 
-file = open("data/dna_sequences.txt")
+file = open("../data/dna_sequences.txt")
 sequences = file.readlines()
 file.close()
 
 
 # Crear un archivo vacio fasta
 
-file = open("results/dna_sequences.fasta", "w")
+file = open("../results/dna_sequences.fasta", "w")
 
 
 # Recorrer cada uno de los elementos de la lista
@@ -34,8 +34,8 @@ file = open("results/dna_sequences.fasta", "w")
 # Escribir cada secuencia en el archivo de destino
 
 for sequence in sequences:
-    id = '>' + sequence.split("   ")[0] + "\n" + sequence.split("   ")[1]
-    file.write(id.replace('-', '').upper().replace('\t', '\n'))
+    id = '>' + sequence.split("\t")[0] + "\n" + sequence.split("\t")[1]
+    file.write(id.replace('-', '').upper())
 
 
 # Cerrar el archivo fasta
