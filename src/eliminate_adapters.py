@@ -24,28 +24,44 @@ GitHub link
     https://github.com/ulisesplaper/python_class/blob/master/src/eliminate_adapters.py
        
 '''
-
-# Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
-
-file = open("../data/4_input_adapters.txt")
-seqs_adapters = file.readlines()
-file.close()
+# Declarar una excepcion para documentos vacios
 
 
-# Crear un archivo destino para almacenar las secuencias sin adaptadores
-file = open('../results/sequences_woadpters.txt', 'w')
+class EmptyDocError(Exception):
+    pass
 
 
-# Recorrer la lista y eliminar los primeros 14 elementos de cada string
-# Agregar cada secuencia al archivo destino
-for seq_adapter in seqs_adapters:
-    sequence = seq_adapter[14:-1]
-    file.write(f"{sequence}\n")
+# Intentar realizar las siguientes acciones
+try:
 
+    # Abrir el archivo, guardar cada linea en una lista y cerrar el archivo
 
-# Cerrar el archivo destin
-file.close()
+    file = open("../data/4_input_adapters.txt")
+    seqs_adapters = file.readlines()
+    file.close()
 
+    # Determinar si la lista esta vacia y regresar el error si lo esta
+    if len(seqs_adapters) == 0:
+        raise EmptyDocError("\n El archivo input esta vacio\n")
 
-# Imprimir informacion del archivo para el usuario
-print('Archivo generado: /results/sequences_woadpters.txt')
+    # Crear un archivo destino para almacenar las secuencias sin adaptadores
+    file = open('../results/sequences_woadpters.txt', 'w')
+
+    # Recorrer la lista y eliminar los primeros 14 elementos de cada string
+    # Agregar cada secuencia al archivo destino
+    for seq_adapter in seqs_adapters:
+        sequence = seq_adapter[14:-1]
+        file.write(f"{sequence}\n")
+
+    # Cerrar el archivo destin
+    file.close()
+
+    # Imprimir informacion del archivo para el usuario
+    print('Archivo generado: /results/sequences_woadpters.txt')
+
+# Indicar al usuario cuando no se encuentre el archivo
+except IOError:
+    print("\nLa ruta y/o el nombre del archivo no se encuentran o no existen\n")
+# Indicar al usuario cuando el archivo este vacio
+except EmptyDocError as ex:
+    print(ex.args[0])
