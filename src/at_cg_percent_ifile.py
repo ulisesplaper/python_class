@@ -2,7 +2,7 @@
       at_cg_percent_ifile.py
 
 VERSION
-        1.0
+        2.0
 
 AUTHOR
         Victor Ulises Plascencia Perez
