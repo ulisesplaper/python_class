@@ -2,7 +2,7 @@
       at_cg_percent_ifile.py
 
 VERSION
-        2.0
+        3.0
 
 AUTHOR
         Victor Ulises Plascencia Perez
@@ -15,24 +15,44 @@ USAGE
         at_cg_percent_ifile.py
          
 ARGUMENTS
-        ninguno
-
+        -h, --help            show this help message and exit
+        -i path/to/file, --input path/to/file
+                        File with gene sequences
+        -o OUTPUT, --output OUTPUT
+                        Path for the output file
+        -r ROUND, --round ROUND
+                        Number of digits to round
 SEE ALSO
 
 GitHub link
         https://github.com/ulisesplaper/python_class/blob/master/src/AT_CG_percent_i-file.py
        
 '''
+# Importar la libreria argparse
+import argparse
+
 # Intentar realizar las acciones
 try:
-    # Solicitar al usuario el archivo de datos
-    print("Ingrese la ruta y el nombre del archivo que contiene la secuencia de DNA")
-    file_name = input()
+    # Definir los argumentos opcionales y posicionales del programa
+    arg_parse = argparse.ArgumentParser(description="Determine the AT content")
+    arg_parse.add_argument("-i", "--input",
+                           metavar="path/to/file",
+                           help="File with gene sequences",
+                           required=True)
+    arg_parse.add_argument("-o", "--output",
+                           help="Path for the output file",
+                           required=False)
+    arg_parse.add_argument("-r", "--round",
+                           help="Number of digits to round",
+                           type=int,
+                           required=False)
+
+    # Leer los argumentos desde la terminal
+    args = arg_parse.parse_args()
 
     # Abrir y leer todo el contenido del archivo de datos y cerrarlo
-    my_file = open(file_name)
-    my_dna = my_file.read()
-    my_file.close()
+    with open(args.input, "r") as seq_file:
+        my_dna = seq_file.read()
 
     # Eliminar caracteres que no son secuencia
     my_dna = my_dna.rstrip("\n")
@@ -52,13 +72,30 @@ try:
 
     # Calcular el % de AT y GC
     total_count = len(my_dna)
-    at_content = round(((t_count + a_count) / total_count) * 100)
-    gc_content = round(((g_count + c_count) / total_count) * 100)
+    # Si el usuario especifico el redondeo, llevarlo a cabo
+    if args.round:
+        at_content = round(
+            ((t_count + a_count) / total_count) * 100, args.round)
+        gc_content = round(
+            ((g_count + c_count) / total_count) * 100, args.round)
+    # Si no se especifico, redondear a 2 cifras decimales
+    else:
+        at_content = round(((t_count + a_count) / total_count) * 100, 2)
+        gc_content = round(((g_count + c_count) / total_count) * 100, 2)
 
-    # Imprimir resultados.
-    print(f"La secuencia proporcionada es {my_dna}\n")
-    print(
-        f"Porcentaje de AT es: {at_content}%\nPorcentaje de GC es: {gc_content}%\n")
+    # Generar el output del programa
+    # Si el usuario indico el path de un archivo, escribir el output en este
+    if args.output:
+        file = open(f"{args.output}", "w")
+        file.write(f"El contenido de AT es {at_content}\n\
+El contenido de GC es: {gc_content}")
+        file.close()
+        print(f"El archivo {args.output} ha sido generado exitosamente\n")
+    # Si no se indico, imprimir el output a pantalla
+    else:
+        print(f"La secuencia proporcionada es {my_dna}\n")
+        print(
+            f"Porcentaje de AT es: {at_content}%\nPorcentaje de GC es: {gc_content}%\n")
 
 # Informar si no se encontro el archivo
 except IOError:
