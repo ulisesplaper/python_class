@@ -2,7 +2,7 @@
       count_aminoacids.py
 
 VERSION
-        1.0
+        2.0
 
 AUTHOR
         Victor Ulises Plascencia Perez
@@ -12,19 +12,21 @@ DESCRIPTION
 
 USAGE
 
-        count_aminoacids.py [-h] aminoacid protein
-         
+        count_aminoacids.py [-h] [-a AMINOACID_LIST] protein
+
 ARGUMENTS
         positional arguments:
-            aminoacid   aminoacid to count
-            protein     protein sequence
+            protein               protein sequence
+
         options:
-            -h, --help  show this help message and exit
+          -h, --help            show this help message and exit
+          -a AMINOACID_LIST, --aminoacid_list AMINOACID_LIST
+                aminoacid list without comas, spaces, or special characters
 SEE ALSO
 
 GitHub link
         https://github.com/ulisesplaper/python_class/blob/master/src/count_aminoacids.py
-       
+
 '''
 # Importar librerias necesarias
 import argparse
@@ -41,9 +43,14 @@ class NotCorrectProteinError(Exception):
     pass
 
 
-# Definir los argumentos posicionales
-parser = argparse.ArgumentParser()
-parser.add_argument('aminoacid', help='aminoacid to count')
+# Definir los argumentos posicionales y opcionales
+# Si el usuario no indica la lista de aminoacidos, indicar una por default
+parser = argparse.ArgumentParser(
+    description="Determine the aminoacids listed percentaje\
+ of a protein sequence")
+parser.add_argument('-a', '--aminoacid_list',
+                    type=list, help='aminoacid list without comas, \
+spaces, or special characters', required=False, default='ailmfwyv')
 parser.add_argument("protein", help='protein sequence')
 
 # Leer los argumentos de la terminal
@@ -53,25 +60,32 @@ args = parser.parse_args()
 # Indicar los parametros que recibe la funcion
 
 
-def get_aa_percentage(peptide_sequence, aminoacid):
+def get_aa_percentage(peptide_sequence, aminoacid_list):
     peptide_sequence = peptide_sequence.upper()
-    aminoacid = aminoacid.upper()
-    # Verificar que el aminoacido y la secuencia ingresada sean correctas
-    # Regresar el error correspondiente cuando no sean correctas
+
+    # Verificar que la secuencia proteica ingresada sea correcta
+    # Regresar el error correspondiente cuando no sea correcta
     aminoacids = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K',
                   'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
-    if aminoacid not in aminoacids:
-        raise NotAminoacidFoundError(
-            'NotAminoacidFoundError <A correct aminoacid was not entered>')
     for block in peptide_sequence:
         if block not in aminoacids:
             raise NotCorrectProteinError(
                 'NotCorrectProteinError <A correct protein sequence\
  was not entered>')
-    # Contar las ocurrencias del aminoacido en la proteina
-    # Contar el numero de aminoacidos de la proteina.
-    # Calcular el porcentaje del aminoacido y regresar el valor
-    peptide_count = peptide_sequence.count(aminoacid)
+    # Inicializar una variable para llevar la cuenta de las ocurrencias
+    # de los aminoacidos de la lista
+    # Recorrer la lista de aminoacidos
+    # contar las ocurrencia en la secuencia proteica y almacenar el resultado
+    # Si algun caracter no corresponde con un aminoacido, regresar el error.
+    peptide_count = 0
+    for aminoacid in aminoacid_list:
+        aminoacid = aminoacid.upper()
+        if aminoacid not in aminoacids:
+            raise NotAminoacidFoundError(
+                'NotAminoacidFoundError <A correct aminoacid was not entered>')
+        peptide_count += peptide_sequence.count(aminoacid)
+
+     # Calcular el porcentaje de la lista de aminoacidos y regresar el valor
     peptide_percent = round(peptide_count / len(peptide_sequence) * 100, 3)
     return peptide_percent
 
@@ -80,12 +94,15 @@ def get_aa_percentage(peptide_sequence, aminoacid):
 try:
 
     # Informar al usuario el porcentaje de aminoacido en la secuencia proteica
+    # que ingreso o, en su caso, la lista default
     print(
-        f"El porcentaje de {args.aminoacid} en la secuencia dada es:\
-\n {get_aa_percentage(args.protein, args.aminoacid)}")
+        f"El porcentaje de {args.aminoacid_list} en la secuencia dada es:\
+\n {get_aa_percentage(args.protein, args.aminoacid_list)}")
+
 # Informar si la letra ingresada no corresponde con un aminoacido
 except NotAminoacidFoundError as ex:
     print('\n El aminoacido ingresado es incorrecto\n' + ex.args[0])
+
 # Informar si la secuencia ingresada contiene letras que no son aminoacidos
 except NotCorrectProteinError as ex:
     print('\n la secuencia proteica ingresada es incorrecta\n' + ex.args[0])
