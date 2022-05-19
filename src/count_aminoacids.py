@@ -37,3 +37,12 @@ def get_aa_percentage(peptide_sequence, aminoacid):
     return peptide_percent
 
 # Evaluar que la funcion regrese valores esperados
+
+
+try:
+    assert get_aa_percentage("MSRSLLLRFLLFLLLLPPLP", "M") == 5
+    assert get_aa_percentage("MSRSLLLRFLLFLLLLPPLP", "r") == 10
+    assert get_aa_percentage("msrslllrfllfllllpplp", "L") == 50
+    assert get_aa_percentage("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
+except:
+    print("Error\n")
