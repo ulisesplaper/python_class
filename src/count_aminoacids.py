@@ -32,6 +32,7 @@ GitHub link
 import argparse
 import string
 
+
 # Declarar las excepciones para aminoacido y proteina incorrecta
 
 
@@ -61,6 +62,16 @@ args = parser.parse_args()
 
 
 def get_aa_percentage(peptide_sequence, aminoacid_list):
+    '''
+    Returns the porcentaje of aminoacids list in a protein sequence 
+        Parameters
+            peptide_sequence (str): a protein sequence
+            aminoacid_list (str): aminoacid list
+        Returns:
+            get_aa_percentage(float): porcentaje of a amionacids list of protein sequence
+
+
+    '''
     peptide_sequence = peptide_sequence.upper()
 
     # Verificar que la secuencia proteica ingresada sea correcta
