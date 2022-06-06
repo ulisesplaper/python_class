@@ -54,6 +54,7 @@ Las versiones se generaron manualmente.
 
 * **Victor Ulises Plascencia Perez** - *Desarrollo de programas* - [ulisesplaper](https://github.com/ulisesplaper)
 * **Heladia Salgado** - *Revision* - [Helysalgado](https://github.com/Helysalgado)
+* **Michel Mourra** - *Revision* - [Mich Mourra](https://gist.github.com/MichMourra)
 
 ## Licencia 
 
@@ -61,6 +62,6 @@ Este proyecto no esta bajo licencia.
 
 ## Expresiones de Gratitud
 
-A Felibe Betancourt-[pillbet](https://phillbet.com/), Shirley Alquicira-[shirley](https://github.com/shirleyah), Heladia Salgado-[Helysalgado](https://github.com/Helysalgado), a Michel Mourra-[Mich Mourra](https://gist.github.com/MichMourra) y Eduardo Arrieta-[Eduardo Arrieta](https://github.com/eduardo-arrieta)
+A Felipe Betancourt-[pillbet](https://phillbet.com/), Shirley Alquicira-[shirley](https://github.com/shirleyah), Heladia Salgado-[Helysalgado](https://github.com/Helysalgado), a Michel Mourra-[Mich Mourra](https://gist.github.com/MichMourra) y Eduardo Arrieta-[Eduardo Arrieta](https://github.com/eduardo-arrieta)
  por impartir la clase de **Programacion en Python** 
 
